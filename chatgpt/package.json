@@ -1,0 +1,41 @@
+{
+  "name": "chatgpt-desktop",
+  "version": "1.0.0",
+  "description": "Unofficial ChatGPT desktop client (Electron wrapper)",
+  "main": "src/main.js",
+  "author": "electron-wrappers <noreply@example.com>",
+  "license": "MIT",
+  "homepage": "https://chatgpt.com/",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --linux deb",
+    "dist:deb": "electron-builder --linux deb",
+    "claude:start": "electron claude",
+    "claude:dist": "electron-builder --project claude --linux deb",
+    "claude:dist:deb": "electron-builder --project claude --linux deb"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.desktop.chatgpt-desktop",
+    "productName": "ChatGPT",
+    "asar": true,
+    "files": [
+      "src/**/*",
+      "build/**/*",
+      "package.json"
+    ],
+    "linux": {
+      "target": ["deb"],
+      "category": "Network;Chat;",
+      "icon": "build/icons",
+      "synopsis": "Desktop wrapper for ChatGPT",
+      "description": "Unofficial Electron-based desktop client for chatgpt.com"
+    },
+    "deb": {
+      "depends": ["libnotify4", "libxtst6", "libnss3", "libsecret-1-0"]
+    }
+  }
+}

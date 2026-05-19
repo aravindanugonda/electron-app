@@ -1,0 +1,38 @@
+{
+  "name": "google-ai-desktop",
+  "version": "1.0.0",
+  "description": "Unofficial Google AI desktop client (Electron wrapper)",
+  "main": "src/main.js",
+  "author": "electron-wrappers <noreply@example.com>",
+  "license": "MIT",
+  "homepage": "https://www.google.com/ai",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --linux deb",
+    "dist:deb": "electron-builder --linux deb"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.desktop.google-ai-desktop",
+    "productName": "GoogleAI",
+    "asar": true,
+    "files": [
+      "src/**/*",
+      "build/**/*",
+      "package.json"
+    ],
+    "linux": {
+      "target": ["deb"],
+      "category": "Network;Chat;",
+      "icon": "build/icons",
+      "synopsis": "Desktop wrapper for Google AI",
+      "description": "Unofficial Electron-based desktop client for Google AI Search"
+    },
+    "deb": {
+      "depends": ["libnotify4", "libxtst6", "libnss3", "libsecret-1-0"]
+    }
+  }
+}
