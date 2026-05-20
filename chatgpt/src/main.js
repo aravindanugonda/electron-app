@@ -7,7 +7,7 @@ const path = require('path');
 
 const TARGET_URL = 'https://chatgpt.com/';
 const USER_AGENT =
-  'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36';
+  'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36';
 
 // Use OpenGL via ANGLE instead of Vulkan — avoids Mesa/ZINK driver errors on Intel iGPUs
 app.commandLine.appendSwitch('use-angle', 'gl');
@@ -261,7 +261,7 @@ app.whenReady().then(() => {
   // "Electron" as a brand unless overridden at the network layer.
   chatSes.webRequest.onBeforeSendHeaders((details, callback) => {
     const h = details.requestHeaders;
-    h['Sec-CH-UA']          = '"Not/A)Brand";v="8", "Chromium";v="126", "Google Chrome";v="126"';
+    h['Sec-CH-UA']          = '"Not A(Brand";v="8", "Chromium";v="132", "Google Chrome";v="132"';
     h['Sec-CH-UA-Mobile']   = '?0';
     h['Sec-CH-UA-Platform'] = '"Linux"';
     callback({ requestHeaders: h });
